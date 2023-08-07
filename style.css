@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Oswald&family=Victor+Mono&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Victor Mono', monospace;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 2em;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 2em 0;
+  text-align: center;
+  padding: 2em;
+  margin: 1em;
+  border: 1px solid orange;
+}
+
+.add-book-form {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  display: none;
+  width: 50%;
+  margin: 1em;
+  padding: 2em;
+  border: 1px solid orange;
+}
+
+.add-book-btn {
+  max-width: 100px;
+  margin: 0 auto;
+  padding: .5em;
+  border-radius: 15px;
+  background-color: orange;
+  cursor: pointer;
+}
+
+#submit-book-btn {
+  padding: .3em;
+  margin: .5em;
+  border-radius: 15px;
+  background-color: orange;
+}
+
+.close-out-x {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: .1em .4em;
+  border: none;
+  cursor: pointer;
+}
+
+
+.books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 20%));
+  width: 100%;
+  gap: 3em;
+  padding: 2em 0;
+  justify-content: space-around;
+  margin: 1em;
+  border: 1px solid orange;
+}
+
+.book-container {
+  text-align: center;
+  border-radius: 50px;
+  border: 1px solid orange;
+}
+
+
+.title {
+  padding: 1em;
+}
+
+.author {
+  padding: 1em;
+}
+
+.pages {
+  padding: 1em;
+}
+
+.isRead {
+  padding: 1em;
+}
+
+.remove-btn {
+  padding: 1em;
+  margin: 1em;
+  border-radius: 15px;
+  background-color: orange;
+}
+
