@@ -19,31 +19,74 @@ closeOutX.addEventListener("click", () => {
   addBookForm.style.display = "none";
 })
 
-
 addBookForm.addEventListener("submit", (e) => {
-    e.preventDefault(); //so that way it doesn't try to send form info to non-existent server 
-    let title = titleInput.value;
-    let author = authorInput.value;
-    let pages = pagesInput.value;
-    let isRead = isReadInput.value;
-    addBookToLibrary(title, author, pages, isRead);
+  e.preventDefault(); //so that way it doesn't try to send form info to non-existent server 
+  let title = titleInput.value;
+  let author = authorInput.value;
+  let pages = pagesInput.value;
+  let isRead = isReadInput.value;
+  addBookToLibrary(title, author, pages, isRead);
+})
+
+function addBookToLibrary (title, author, pages, isRead) {
+  const newBook = new Book(title, author, pages, isRead)
+  myLibrary.push(newBook)
+  displayBook(newBook)
+  clearInputField();
+}
+
+function Book(title, author, pages, isRead) {
+  this.title = title
+  this.author = author
+  this.pages = pages
+  this.isRead = isRead
+}
+
+function displayBook(book)
+{
+  const bookContainer = document.createElement("div")
+  bookContainer.classList.add("book-container")
+  
+  const nameDiv = document.createElement("div")
+  nameDiv.classList.add("title")
+  nameDiv.textContent = `${book.title}`
+  bookContainer.appendChild(nameDiv)
+  
+  const authorDiv = document.createElement("div")
+  authorDiv.classList.add("author")
+  authorDiv.textContent = `${book.author}`
+  bookContainer.appendChild(authorDiv)
+  
+  const pagesDiv = document.createElement("div")
+  pagesDiv.classList.add("pages")
+  pagesDiv.textContent = `${book.pages}`
+  bookContainer.appendChild(pagesDiv)
+  
+  const isReadDiv = document.createElement("div")
+  isReadDiv.classList.add("isRead")
+  isReadDiv.textContent = `${book.isRead}`
+  bookContainer.appendChild(isReadDiv)
+  
+  const removeButton = document.createElement("button")
+  removeButton.classList.add("remove-btn")
+  removeButton.textContent = "Remove"
+  bookContainer.appendChild(removeButton)
+  
+  removeButton.addEventListener("click", () => {
+    for (let i = 0; i < myLibrary.length; i++)
+    {
+      if (myLibrary[i].title === book.title)
+      {
+        myLibrary.splice(i, 1)
+        booksContainer.removeChild(bookContainer)
+        break;
+      }
+    }
   })
-  
-  function addBookToLibrary (title, author, pages, isRead) {
-    const newBook = new Book(title, author, pages, isRead)
-    myLibrary.push(newBook)
-    clearInputField();
-  }
-  
-  function Book(title, author, pages, isRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.isRead = isRead
-  }
-  
-  
-  function clearInputField()
-  {
-    addBookForm.reset();
-  }
+  booksContainer.appendChild(bookContainer)
+}
+
+function clearInputField()
+{
+  addBookForm.reset();
+}
