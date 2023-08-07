@@ -50,11 +50,29 @@ body {
   cursor: pointer;
 }
 
+.add-book-btn:hover {
+  opacity: 0.8;
+}
+
 #submit-book-btn {
   padding: .3em;
   margin: .5em;
   border-radius: 15px;
   background-color: orange;
+}
+
+#submit-book-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+input[type='radio'] 
+{
+    accent-color: orange;
+}
+
+.radio-button:hover {
+  cursor: pointer;
 }
 
 .close-out-x {
@@ -66,6 +84,26 @@ body {
   cursor: pointer;
 }
 
+.close-out-x:hover {
+  background-color: orange;
+}
+
+#title {
+  
+}
+
+#author {
+  
+}
+
+#pages {
+  
+}
+
+#isRead {
+  
+  
+}
 
 .books-container {
   display: grid;
@@ -84,6 +122,10 @@ body {
   border: 1px solid orange;
 }
 
+input:focus {
+  border: 3px solid orange;
+  outline: none;
+}
 
 .title {
   padding: 1em;
@@ -108,3 +150,7 @@ body {
   background-color: orange;
 }
 
+.remove-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
